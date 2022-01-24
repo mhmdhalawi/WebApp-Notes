@@ -9,7 +9,7 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "External/Passive Enumeration.md",
+            "file": "Internal/2- Vulnerability scanning/automated scan.md",
             "mode": "source"
           }
         }
@@ -68,7 +68,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "External/Passive Enumeration.md",
+                "file": "Internal/2- Vulnerability scanning/automated scan.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,15 +88,15 @@
   },
   "active": "95b8e0b03fcee1af",
   "lastOpenFiles": [
-    "External/Passive Enumeration.md",
-    "Internal/5- Active Directory - Domain Controller/persistence.md",
-    "Internal/5- Active Directory - Domain Controller/lateral movement.md",
-    "Internal/5- Active Directory - Domain Controller/2- Attacks.md",
-    "Internal/4- Priviledge Escalation/Windows.md",
-    "Internal/5- Active Directory - Domain Controller/1- Enumeration.md",
-    "Internal/3- Exploitation/MITM Attacks.md",
+    "Internal/2- Vulnerability scanning/automated scan.md",
+    "Internal/2- Vulnerability scanning/manuel scan.md",
+    "Internal/1- Host & Service scanning/Standard scans.md",
+    "Internal/1- Host & Service scanning/Firewall bypass scans.md",
     "External/Public services.md",
-    "Web/2- SQL injection/In Band.md",
-    "Web/2- SQL injection/Error Based.md"
+    "External/Passive Enumeration.md",
+    "Web/3- File Inclusion/Directory traversal.md",
+    "Web/3- File Inclusion/Remote.md",
+    "Web/3- File Inclusion/Local.md",
+    "Internal/5- Active Directory - Domain Controller/persistence.md"
   ]
 }
