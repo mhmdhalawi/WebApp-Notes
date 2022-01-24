@@ -14,9 +14,7 @@ GPO
 AD ACLs
 Domain Trust
 
-![test](./screenshot.png)
-
-<img src="screenshot.png" alt="IoT" />
+![Description](./Screenshots/screenshot.png)
 
 
 **Basics**
