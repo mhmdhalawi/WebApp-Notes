@@ -1,0 +1,102 @@
+{
+  "main": {
+    "id": "691eede38be64ee2",
+    "type": "split",
+    "children": [
+      {
+        "id": "95b8e0b03fcee1af",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "External/Passive Enumeration.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4906cf2212e73b7f",
+    "type": "split",
+    "children": [
+      {
+        "id": "71a80b7aa1539a3c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76769561656d7880",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "784afc6c26bbee27",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 316
+  },
+  "right": {
+    "id": "a73cf6461fa615f9",
+    "type": "split",
+    "children": [
+      {
+        "id": "f105582e28da6c3f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f4563fb4b5370de8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "External/Passive Enumeration.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "95b8e0b03fcee1af",
+  "lastOpenFiles": [
+    "External/Passive Enumeration.md",
+    "Internal/5- Active Directory - Domain Controller/persistence.md",
+    "Internal/5- Active Directory - Domain Controller/lateral movement.md",
+    "Internal/5- Active Directory - Domain Controller/2- Attacks.md",
+    "Internal/4- Priviledge Escalation/Windows.md",
+    "Internal/5- Active Directory - Domain Controller/1- Enumeration.md",
+    "Internal/3- Exploitation/MITM Attacks.md",
+    "External/Public services.md",
+    "Web/2- SQL injection/In Band.md",
+    "Web/2- SQL injection/Error Based.md"
+  ]
+}
