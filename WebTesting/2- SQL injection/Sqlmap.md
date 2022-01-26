@@ -44,8 +44,7 @@ Create a tamper script called "mytamper.py" in the /usr/share/sqlmap/tamper
 
 **Post Req Example**
 
-<pre>sqlmap  -u "url" 
---data="fun=login&username=test&password=test"</pre>
+<pre>sqlmap -u "url" --data="fun=login&username=test&password=test"</pre>
 
 
 # Switches
