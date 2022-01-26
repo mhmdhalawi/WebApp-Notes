@@ -32,6 +32,12 @@
 **User Agent Injection**
 <pre>sqlmap  -u "http://localhost/index.php" --level 3 </pre>
 
+**Apply custom tamper script**
+
+Create a tamper script called "mytamper.py" in the /usr/share/sqlmap/tamper
+
+<pre>sqlmap -u "http://2.challenge.sqli.site/view_book.php?id=3" --cookie="userchl2_info=" -p userchl2_info --level=2 --dbms=mysql --tamper=mytamper — banner</pre>
+
 # Switches
 
 **--user-agent**
