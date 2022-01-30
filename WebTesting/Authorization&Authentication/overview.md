@@ -151,6 +151,14 @@ http://www.elsfoo.com/index.php?**auth=FALSE**
 
 **auth** is used to indicate whether the user is authenticated or not. So An attacker can easily change the parameter auth to *TRUE* since the web app considers only the **auth** paramerter to determine if a request is authenticated or not, the attacker will be able to access the protected contents.
 
+*OR*
+
+a **Cookie** based64 encoded can be used to define a user
+
+    cookie : user=MQ==
+
+so by changing the user to *Mg==* we can be a new user
+
 <br/>
 
 # Incorrect Redirection
