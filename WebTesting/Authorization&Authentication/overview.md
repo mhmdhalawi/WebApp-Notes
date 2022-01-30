@@ -153,11 +153,11 @@ http://www.elsfoo.com/index.php?**auth=FALSE**
 
 *OR*
 
-a **Cookie** based64 encoded can be used to define a user
+**Cookie** based64 value encoded can be used to define a user
 
-    cookie : user=MQ==
+    cookie : user= MQ==
 
-so by changing the user to *Mg==* we can be a new user
+so by changing the value of user from 1 ( ***MQ==*** ) to 2 ( ***Mg==*** )  we can be a new user
 
 <br/>
 
