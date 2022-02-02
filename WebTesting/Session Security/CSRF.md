@@ -28,35 +28,88 @@ The most common protection mechanism against CSRF exploit is to use a **token** 
 
 # Lab Example
 
-Login with the following credentials:
+Open the attacker browser (for example Mozilla) and go to the Arrogant Bank home page. Login with the following credentials:
 
 - Username: mike
 
 - Password: ABC7d8z1
 
+You will notice that ArrogantBank is offering a new service: e-Transfer. With this feature, a logged user will be able to send money to another customer of the same bank.
+
 ![csrf-lab](images/csrf.png)
 
-You can see that checking account information is stored in JavaScript variables, provided by the URL balance.php. This resource acts as a JavaScript library file so that it can be imported by any web page regardless of its domain origin.
+Let us examine how the service works. To do this, we will enable Burp proxy to intercept all the HTTP requests leaving the browser. After that, we will start a test money transfer, and we will observe which parameters are sent by the browser with the requests.
 
 ![csrf-lab](images/csrf2.png)
 
-## Building the exploit
-
-The attacker can build an html page in a domain under his control. This page will access the JavaScript variables owned by the unlucky bank customer.
-
-The exploit code will have a similar structure:
+After pressing the submit button Burp proxy will intercept the following request:
 
 ![csrf-lab](images/csrf3.png)
 
-Note that the JavaScript variables can be loaded only if a logged user loads the malicious page. Unauthenticated users will get an empty file.
+Please note that money transfer is performed using an HTTP request and that the following parameters are embedded in the URL
 
-To be sure the page is loaded by an authenticated user, the attacker can use the Feedback area to spread a link to his malicious web site. A customer opening that link will become a victim.
+- accountNumber - receiver's account number
+
+- swift - receiver's swift code
+
+- amount - amount of money to transfer
+
+There is no unpredictable token sent with the request so you can conclude that web application is vulnerable to CSRF in the script startCreditTransfer.php.
+
+<br/>
+
+## Building the exploit
+The attacker must build a payload to force the victim into sending him money. Therefore, the payload will include the attacker account number and the desired money:
+
+- accountNumber : 99999999992
+
+- swiftCode : B4F15S6S
+
+- amount :
+
+According to the web application logic, the payload will be embedded in the following URL:
+
+    http:///startCreditTransfer.php?amount=100&accountNumber=99999999992&swift=B4F15S6S
+
+By simply loading that URL, an authenticated victim will send money to the attacker.
+
+There are many ways to let a logged user load a URL. The most trivial is to send a link to the victim in hope that he will click on it.
+
+In this case, the victim could become suspicious, as he would see the webpage of ArrogantBank with the result of the money transfer.
+
+Another, better and stealthier, way to achieve the same goal is to embed the CSRF payload URL in the SRC attribute of an Image within an HTML page. Same-origin does not apply; we are just requesting an external resource without having to read the response.
+
+The Image tag can be embedded in any page that the victim trusts (Facebook, Third party Forums, Your website)
+
+<br/>
+
+## This method works best for a number of reasons:
+
+<br/>
+
+CSRF payload with the suspicious request won't appear in the link that we send to the victim
+
+The victim doesn't see the output of the request
+
+Higher chances that the victim will visit the page with the Image than a link that includes long and suspicious content
+
+Therefore, the attacker can use a personal website under his control on a different domain to host the following malicious code:
+
+    <div id="attackPoint" style="display:none;"> <img src="http://s1-183l1s6w8g.roma.coliseumlab.net/startCreditTransfer.php?amount=100 accountNumber=99999999992&swift=B4F15S6S" /> 
+    </div>
+
+For educational purposes, we have already created a feedback message from an attacker. This message has a link to a page that embeds the above image. When you visit the feedback page you should see it:
 
 ![csrf-lab](images/csrf4.png)
 
-## Running the exploit
+**The My site input field of the form was used to include the link.**
 
-Open a second browser (for example Google Chrome), and login with the following credentials:
+<br/>
+
+### Running the exploit
+<br/>
+
+Now let us pretend to be a victim. Open a second browser (for example Google Chrome), and log in with the following credentials:
 
 - Username: jason
 
@@ -64,12 +117,26 @@ Open a second browser (for example Google Chrome), and login with the following 
 
 ![csrf-lab](images/csrf5.png)
 
-Go to the feedback area and open the link provided by Mike.
+Note that you should have $2599 in your account. Whatever the amount is, please note it down.
+
+Now move to the feedback area. Please click on the link to the malicious page.
 
 ![csrf-lab](images/csrf6.png)
 
-The browser will load the JavaScript variables related to the logged session and will steal checking account information:
+When you do, you will land to the attacker's web page that embeds the malicious hidden image. You can verify so by inspecting the web page source code:
 
 ![csrf-lab](images/csrf7.png)
 
-For education purposes, the malicious page will show you all the stolen information. In a real-world attack, this information is secretly retrieved and collected by the attacker.
+By now, the Arrogant web server has elaborated the money transfer request in the background as if it had been initiated voluntarily by the victim.
+
+Now visit your Myaccount page again and verify your total money.
+
+![csrf-lab](images/csrf8.png)
+
+It should be $100 less than before. Where did those dollars go?
+
+You can just log in again as Mike and see
+
+**The attack has been completed!**
+
+Note that if web application had had an anti-CSRF token, the attacker could not have built the URL payload without guessing that token. Any unpredictable token would have made the application safe from CSRF.
