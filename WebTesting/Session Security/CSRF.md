@@ -140,3 +140,10 @@ You can just log in again as Mike and see
 **The attack has been completed!**
 
 Note that if web application had had an anti-CSRF token, the attacker could not have built the URL payload without guessing that token. Any unpredictable token would have made the application safe from CSRF.
+
+# Challenge One
+
+Link was being fetched each time any user loads the webpage, so you inject a payload in the link field to do requests on behalf of the victim.
+
+    http://1.challenge.session.site/process_post.php?title=admin&body=admin&pic=http://google.com
+
