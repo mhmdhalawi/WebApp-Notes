@@ -91,7 +91,7 @@ once the user submits the form, the cookie will be stored in the hidden span
 
 # Challenge 2 reverse shell
 
-## First step
+
 
 Find a script for reverse shell based on languange (php, python, ruby, perl, bash, etc) for this example we will use **PHP**.
 
