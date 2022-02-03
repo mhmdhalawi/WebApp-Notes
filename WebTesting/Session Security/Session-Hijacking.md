@@ -87,6 +87,8 @@ once the user submits the form, the cookie will be stored in the hidden span
 
 ![payload-example-3](images/payload-3.jpg)
 
+<br/>
+
 # Challenge 2 reverse shell
 
 ## First step
