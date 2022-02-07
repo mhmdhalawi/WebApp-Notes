@@ -1,4 +1,0 @@
-TCP scan
-
-Syn scan
-
