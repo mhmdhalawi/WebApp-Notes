@@ -67,8 +67,11 @@ If the request is restricted to only admins, look for the soap action header rel
 <br/>
 
     <targetHost>
-     ; find / -iname *flag*
+     ; find / -iname *flag* 2>/dev/null
     </targetHost>
+
+**iname** matches names but case insensitive.
+**2>/dev/null** to not print out errors.
 
 
 <br/>
