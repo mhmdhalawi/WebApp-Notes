@@ -190,3 +190,12 @@ The **Location**  header will be used by the browser to perform a new HTTP reque
 So, by using a proxy (**Burp-suite**), an attacker can easily see protected contents; in this case, the personal data of the user Bob was obtained.
 
 **Solution**: A web developer using a redirect to protect content must remember to terminate the script execution after inserting the redirect statement.
+
+## Hint
+
+When user enumerating in burp intruder, if you have all the values checked from grep match, then check the response code to see if it depends on a variable instead of just a string.
+
+    if(authFlag===0)
+        msg= "account not found"
+
+so in this case the **account not found** will always be **matched** in the file but not shown in the webpage.
