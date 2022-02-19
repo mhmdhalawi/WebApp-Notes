@@ -1,5 +1,5 @@
 | Switch | Example | Description
-|:-----:|:-----:|:----:|
+|:-----:|:-----|:----|
 ||nmap 192.168.1.1|Scan a single IP	
 ||nmap 192.168.1.1 192.168.2.1|Scan specific IPs
 ||nmap 192.168.1.1-254|Scan a range

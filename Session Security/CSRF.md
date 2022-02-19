@@ -95,7 +95,7 @@ Higher chances that the victim will visit the page with the Image than a link th
 
 Therefore, the attacker can use a personal website under his control on a different domain to host the following malicious code:
 
-    <div id="attackPoint" style="display:none;"> <img src="http://s1-183l1s6w8g.roma.coliseumlab.net/startCreditTransfer.php?amount=100 accountNumber=99999999992&swift=B4F15S6S" /> 
+    <div id="attackPoint"="display:none;"> <img src="http://s1-183l1s6w8g.roma.coliseumlab.net/startCreditTransfer.php?amount=100 accountNumber=99999999992&swift=B4F15S6S" /> 
     </div>
 
 For educational purposes, we have already created a feedback message from an attacker. This message has a link to a page that embeds the above image. When you visit the feedback page you should see it:

